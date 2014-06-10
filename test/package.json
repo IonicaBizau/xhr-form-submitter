@@ -1,0 +1,15 @@
+{
+  "name": "xhr-form-submitter-test",
+  "version": "0.0.0",
+  "description": "Test application for XHR form submitter JavaScript library",
+  "main": "index.js",
+  "dependencies": {
+    "statique": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index"
+  },
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT"
+}
