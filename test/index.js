@@ -2,6 +2,7 @@
 var Statique = require("statique")
   , Http = require("http")
   , Debug = require("bug-killer")
+  , QueryString = require("querystring")
   ;
 
 // Statique config
@@ -10,9 +11,14 @@ Statique
     .setRoutes({
         "/":       "/html/index.html"
       , "/form-submit": {
-            method: "post"
-          , handler: function (req, res, form) {
-
+            post: function (req, res, form) {
+                form.on("done", function (form) {
+                    var data = QueryString.parse(form.data);
+                    if (!data.name) {
+                        return Statique.sendRes(res, 400, "text", "Provide a name in post data.");
+                    }
+                    res.end("Your name is: " + data.name);
+                });
             }
         }
     })

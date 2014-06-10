@@ -2,13 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="/css/style.css">
+        <title>Test XHR Form Submitter</title>
     </head>
     <body>
-        <h1 class="tablet">Hey, tablet!</h1>
-        <h1 class="phone">I love smartphones!</h1>
-        <h1 class="laptop">Laptops are great</h1>
-        <h1 class="monitor">Let's watch a movie.</h1>
+        <h1>XHR Form Submitter JavaScript Library</h1>
+        <form action="/form-submit" method="post">
+            Your name: <input type="text" name="name">
+            <input type="checkbox" name="xhr" checked>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
