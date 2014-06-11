@@ -3,10 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Test XHR Form Submitter</title>
+        <script src="/js/xhr-form-submitter.js"></script>
+        <script src="/js/main.js"></script>
     </head>
     <body>
         <h1>XHR Form Submitter JavaScript Library</h1>
-        <form action="/form-submit" method="post">
+        <form id="myForm" action="/form-submit" method="post">
             Your name: <input type="text" name="name">
             <input type="checkbox" name="xhr" checked>
             <br>
