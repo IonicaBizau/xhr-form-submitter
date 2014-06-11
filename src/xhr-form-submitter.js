@@ -12,7 +12,7 @@
          * @function
          * @return {Object} The form data object (name: value)
          */
-        self.getFormData = function () {
+        self.getFormData = function (stringified) {
 
             var allInputs = self._form.querySelectorAll("[name]")
               , formData = {}
@@ -65,7 +65,17 @@
                 formData[name] = value;
             }
 
-            return formData;
+            if (!stringified) {
+                return formData;
+            }
+
+            debugger;
+            stringified = "";
+            for (var key in formData) {
+                stringified += encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]) + "&";
+            }
+            stringified = stringified.substr(0, stringified.length - 1);
+            return stringified;
         };
 
         /**
@@ -86,7 +96,7 @@
               , form = self._form
               , url = submitOps.actionUrl || form.getAttribute("action")
               , method = submitOps.method || form.getAttribute("method")
-              , data = self.getFormData()
+              , data = self.getFormData(true)
               ;
 
             xhr.open(method, url);
