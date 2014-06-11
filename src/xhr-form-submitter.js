@@ -72,6 +72,17 @@
                   ;
 
                 switch (type) {
+                    case "checkbox":
+                        value = cEl.checked;
+                        break;
+                    case "image":
+                        value = cEl.getAttribute("src");
+                        break;
+                    case "radio":
+                        value = document.querySelector(
+                            "input[name='" + name + "']:checked"
+                        ).value;
+                        break;
                     case "button":
                     case "text":
                     case "url":
@@ -91,21 +102,8 @@
                     case "tel":
                     case "time":
                     case "week":
-                        value = cEl.value;
-                        break;
-                    case "checkbox":
-                        value = cEl.checked;
-                        break;
-                    case "image":
-                        value = cEl.getAttribute("src");
-                        break;
-                    case "radio":
-                        value = document.querySelector(
-                            "input[name='" + name + "']:checked"
-                        ).value;
-                        break;
                     default:
-                        console.warn("Unhandled type: ", type);
+                        value = cEl.value;
                         break;
                 }
 
