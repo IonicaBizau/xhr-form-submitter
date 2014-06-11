@@ -20,7 +20,7 @@
 
             for (var i = 0; i < allInputs.length; ++i) {
 
-                var cEl = allInputs[i];
+                var cEl = allInputs[i]
                   , type = cEl.getAttribute("type")
                   , name = cEl.getAttribute("name")
                   , value = null
