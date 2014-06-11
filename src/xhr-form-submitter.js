@@ -1,8 +1,8 @@
 /**
  * XHRFormSubmitter JavaScript Library
  * ===================================
- * A lightweigt JavaScript library that do one thing: submiting via XHR requests.
- * This doesn't depend on jQuery!
+ * A lightweigt JavaScript library that do one thing: submiting via XHR
+ * requests. This doesn't depend on jQuery!
  *
  * For more information, see README file.
  * Report bugs in the GitHub repository.
@@ -23,8 +23,8 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -42,7 +42,8 @@
 
         /**
          * getFormData
-         * Creates an object containing the names and the values of the form inputs.
+         * Creates an object containing the names and the values of the form
+         * inputs.
          *
          * @name getFormData
          * @function
@@ -91,7 +92,9 @@
                         value = cEl.getAttribute("src");
                         break;
                     case "radio":
-                        value = document.querySelector("input[name='" + name + "']:checked").value;
+                        value = document.querySelector(
+                            "input[name='" + name + "']:checked"
+                        ).value;
                         break;
                     default:
                         console.warn("Unhandled type: ", type);
