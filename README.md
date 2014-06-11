@@ -1,4 +1,4 @@
-xhr-form-submitter
+XHR Form Submitter
 ==================
 
 A lightweigt JavaScript library that do one thing: submiting via XHR requests.
