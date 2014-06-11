@@ -4,12 +4,28 @@
   "description": "Test application for XHR form submitter JavaScript library",
   "main": "index.js",
   "dependencies": {
-    "statique": "^0.3.0"
+    "statique": "^0.3.0",
+    "bug-killer": "*"
   },
   "devDependencies": {},
   "scripts": {
     "test": "node index"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/xhr-form-submitter.js"
+  },
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/xhr-form-submitter.js/issues"
+  },
   "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT"
+  "homepage": "https://github.com/IonicaBizau/xhr-form-submitter.js",
+  "license": "MIT",
+  "keywords": [
+    "test",
+    "xhr",
+    "form",
+    "submitter",
+    "javascript"
+  ]
 }
