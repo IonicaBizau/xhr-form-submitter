@@ -17,7 +17,9 @@ Statique
                     if (!data.name) {
                         return Statique.sendRes(res, 400, "text", "Provide a name in post data.");
                     }
-                    res.end("Your name is: " + data.name);
+                    setTimeout(function () {
+                        res.end("Your name is: " + data.name);
+                    }, 1500);
                 });
             }
         }

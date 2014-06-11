@@ -4,7 +4,10 @@ window.onload = function () {
       , nameEl = document.getElementsByTagName("name")[0]
       , mbErrorEl = document.getElementById("mb-error")
       , mbSuccessEl = document.getElementById("mb-success")
-      , formToSubmit = new XHRFormSubmitter({form: formEl})
+      , formToSubmit = new XHRFormSubmitter({
+            form: formEl
+          , disableOnSubmit: true
+        })
       ;
 
     formEl.addEventListener("submit", function (e) {
