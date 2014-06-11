@@ -193,11 +193,15 @@
                 if (options.disableOnSubmit === true) {
                     self.enableInputs();
                 }
+                var data = xhr.responseText;
+                try {
+                    data = JSON.parse(data);
+                } catch (e) {}
                 if (xhr.status >= 400) {
-                    return callback(xhr.responseText, null);
+                    return callback(data, null);
                 }
 
-                callback(null, xhr.responseText);
+                callback(null, data);
             };
 
             if (options.disableOnSubmit === true) {
