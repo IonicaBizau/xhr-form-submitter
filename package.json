@@ -1,6 +1,6 @@
 {
   "name": "xhr-form-submitter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweigt JavaScript library that do one thing: submiting forms via XHR requests.",
   "main": "src/xhr-form-submitter.js",
   "directories": {
