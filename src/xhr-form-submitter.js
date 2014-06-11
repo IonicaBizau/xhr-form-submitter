@@ -78,14 +78,16 @@
          * @return {XMLHttpRequest} The XMLHttpRequest instance
          */
         self.submit = function (submitOps, callback) {
+
+            submitOps = Object(submitOps);
+            callback = callback || function () {};
+
             var xhr = new XMLHttpRequest()
               , form = self._form
               , url = submitOps.actionUrl || form.getAttribute("action")
               , method = submitOps.method || form.getAttribute("method")
               , data = self.getFormData()
               ;
-
-            callback = callback || function () {};
 
             xhr.open(method, url);
             xhr.setRequestHeader("content-type", "text/plain; charset=utf-8");
