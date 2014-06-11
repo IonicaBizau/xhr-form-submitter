@@ -85,5 +85,8 @@ $ npm test
 ## `v0.1.1`
  - Handle `disableOnSubmit` option
 
+## `v0.1.0`
+ - Initial release
+
 ## License
 See the [LICENSE](./LICENSE) file.
