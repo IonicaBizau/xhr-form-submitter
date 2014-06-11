@@ -62,6 +62,20 @@ Submit the form using a XMLHttpRequest.
 # Development
 Run the following commands to download and test the library:
 
+## `disableInputs()`
+This function disables the inputs. It's cool to be called before
+submiting the form.
+
+### Return:
+* **Object** The XHRFormSubmitter instance
+
+## `enableInputs()`
+This function enables the inputs. It's cool to be called after
+receiving the response from server.
+
+### Return:
+* **Object** The XHRFormSubmitter instance
+
 ```sh
 $ git clone git@github.com:IonicaBizau/xhr-form-submitter.js xhr-form-submitter
 $ cd xhr-form-submitter
@@ -84,6 +98,9 @@ $ npm test
 
 ## `v0.1.1`
  - Handle `disableOnSubmit` option
+ - Try to parse response data as JSON
+ - Disable and enable inputs when the form is submitted if `disableOnSubmit` is
+ provided and it's `true`
 
 ## `v0.1.0`
  - Initial release
