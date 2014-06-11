@@ -69,7 +69,6 @@
                 return formData;
             }
 
-            debugger;
             stringified = "";
             for (var key in formData) {
                 stringified += encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]) + "&";
