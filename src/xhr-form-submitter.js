@@ -36,6 +36,14 @@
  */
 (function (window) {
 
+    // All inputs
+    var INPUTS = [
+        "select"
+      , "textarea"
+      , "input"
+      , "button"
+    ];
+
     var XHRFormSubmitter = function (options) {
         var self = this;
         self._form = options.form;
@@ -119,13 +127,47 @@
         };
 
         /**
+         * disableInputs
+         * This function disables the inputs. It's cool to be called before
+         * submiting the form.
+         *
+         * @name disableInputs
+         * @function
+         * @return {Object} The XHRFormSubmitter instance
+         */
+        self.disableInputs = function () {
+            var allInputs = self._form.querySelectorAll(INPUTS.join(","));
+            for (var i = 0; i < allInputs.length; ++i) {
+                allInputs[i].setAttribute("disabled", "");
+            }
+            return self;
+        };
+
+        /**
+         * enableInputs
+         * This function enables the inputs. It's cool to be called after
+         * receiving the response from server.
+         *
+         * @name enableInputs
+         * @function
+         * @return {Object} The XHRFormSubmitter instance
+         */
+        self.enableInputs = function () {
+            var allInputs = self._form.querySelectorAll(INPUTS.join(","));
+            for (var i = 0; i < allInputs.length; ++i) {
+                allInputs[i].removeAttribute("disabled");
+            }
+            return self;
+        };
+
+        /**
          * submit
          * Submit the form using a XMLHttpRequest.
          *
          * @name submit
          * @function
          * @param {Object} submitOps The submit options
-         * @return {XMLHttpRequest} The XMLHttpRequest instance
+         * @return {Object} The XHRFormSubmitter instance
          */
         self.submit = function (submitOps, callback) {
 
@@ -148,6 +190,9 @@
             xhr.setRequestHeader("content-type", "text/plain; charset=utf-8");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState !== 4) { return; }
+                if (options.disableOnSubmit === true) {
+                    self.enableInputs();
+                }
                 if (xhr.status >= 400) {
                     return callback(xhr.responseText, null);
                 }
@@ -155,8 +200,12 @@
                 callback(null, xhr.responseText);
             };
 
+            if (options.disableOnSubmit === true) {
+                self.disableInputs();
+            }
+
             xhr.send(data);
-            return xhr;
+            return self;
         };
     };
     window.XHRFormSubmitter = XHRFormSubmitter;
