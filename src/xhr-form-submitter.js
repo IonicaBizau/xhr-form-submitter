@@ -89,6 +89,11 @@
          */
         self.submit = function (submitOps, callback) {
 
+            if (typeof submitOps === "function") {
+                callback = submitOps;
+                submitOps = undefined;
+            }
+
             submitOps = Object(submitOps);
             callback = callback || function () {};
 
