@@ -7,7 +7,11 @@ window.onload = function () {
 
     formEl.addEventListener("submit", function (e) {
         if (!checkboxEl.checked) { return; }
-        formToSubmit.submit();
+        try {
+            formToSubmit.submit();
+        } catch (e) {
+            console.error(e.message);
+        }
         e.preventDefault();
     });
 };
