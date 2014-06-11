@@ -94,10 +94,10 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState !== 4) { return; }
                 if (xhr.status >= 400) {
-                    return callback(link.responseText, null);
+                    return callback(xhr.responseText, null);
                 }
 
-                callback(null, link.responseText);
+                callback(null, xhr.responseText);
             };
 
             xhr.send(data);
