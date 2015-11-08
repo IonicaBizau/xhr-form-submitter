@@ -1,109 +1,109 @@
-XHR Form Submitter
-==================
+# xhr-form-submitter [![Support this project][donate-now]][paypal-donations]
 
-A lightweigt JavaScript library that do one thing: submiting via XHR requests.
-This doesn't depend on jQuery!
+A lightweight JavaScript library to submig forms via XHR requests.
 
-# How to use
-Include the library in your page. Then, you can do:
+## Installation
+
+```sh
+$ npm i xhr-form-submitter
+```
+
+## Example
 
 ```js
 window.onload = function () {
-
-    // Get the form element
     var formEl = document.getElementById("myForm")
-        // Get message box elements
+      , checkboxEl = document.getElementsByName("xhr")[0]
+      , nameEl = document.getElementsByTagName("name")[0]
       , mbErrorEl = document.getElementById("mb-error")
       , mbSuccessEl = document.getElementById("mb-success")
-        // Create a new instance of XHRFormSubmitter
-      , formToSubmit = new XHRFormSubmitter({form: formEl})
+      , formToSubmit = new XHRFormSubmitter({
+            form: formEl
+          , disableOnSubmit: true
+        })
       ;
 
-    // handle submit event
     formEl.addEventListener("submit", function (e) {
+        if (!checkboxEl.checked) { return; }
+        try {
+            mbErrorEl.style.display = "none";
+            mbSuccessEl.style.display = "none";
+            formToSubmit.submit(function (err, data) {
 
-        // Hide message boxes
-        mbErrorEl.style.display = "none";
-        mbSuccessEl.style.display = "none";
+                var mb = null;
+                if (err) { mb = mbErrorEl; }
+                else { mb = mbSuccessEl; }
 
-        // Submit form
-        formToSubmit.submit(function (err, data) {
-
-            // Do something with err & data
-            var mb = null;
-            if (err) { mb = mbErrorEl; }
-            else { mb = mbSuccessEl; }
-
-            mb.innerHTML = err || data;
-            mb.style.display = "block";
-        });
+                mb.innerHTML = err || data;
+                mb.style.display = "block";
+                mb.classList.remove("fadeInUp");
+                mb.classList.add("fadeInUp");
+            });
+        } catch (e) {
+            console.error(e.message);
+        }
         e.preventDefault();
     });
 };
 ```
 
-# Methods
+## Documentation
 
-## `getFormData()`
-Creates an object containing the names and the values of the form inputs.
+XHRFormSubmitter JavaScript Library
+===================================
+A lightweigt JavaScript library that do one thing: submiting via XHR
+requests. This doesn't depend on jQuery!
 
-### Return:
-* **Object** The form data object (name: value)
+For more information, see README file.
+Report bugs in the GitHub repository.
 
-## `submit(submitOps)`
-Submit the form using a XMLHttpRequest.
+Developed with love by Ionică Bizău.
 
-### Params:
-* **Object** *submitOps* The submit options
+### `getFormData()`
+Creates an object containing the names and the values of the form
+inputs.
 
-### Return:
-* **XMLHttpRequest** The XMLHttpRequest instance
+#### Return
+- **Object** The form data object (name: value)
 
-# Development
-Run the following commands to download and test the library:
-
-## `disableInputs()`
+### `disableInputs()`
 This function disables the inputs. It's cool to be called before
 submiting the form.
 
-### Return:
-* **Object** The XHRFormSubmitter instance
+#### Return
+- **Object** The XHRFormSubmitter instance
 
-## `enableInputs()`
+### `enableInputs()`
 This function enables the inputs. It's cool to be called after
 receiving the response from server.
 
-### Return:
-* **Object** The XHRFormSubmitter instance
+#### Return
+- **Object** The XHRFormSubmitter instance
 
-```sh
-$ git clone git@github.com:IonicaBizau/xhr-form-submitter.js xhr-form-submitter
-$ cd xhr-form-submitter
-$ npm install
-$ npm test
-```
+### `submit(submitOps)`
+Submit the form using a XMLHttpRequest.
 
-# How to contribute
+#### Params
+- **Object** `submitOps`: The submit options
 
-1. File an issue in the repository, using the bug tracker, describing the
-   contribution you'd like to make. This will help us to get you started on the
-   right foot.
-2. Fork the project in your account and create a new branch:
-   `your-great-feature`.
-3. Commit your changes in that branch.
-4. Open a pull request, and reference the initial issue in the pull request
-   message.
+#### Return
+- **Object** The XHRFormSubmitter instance
 
-# Changelog
+## How to contribute
+Have an idea? Found a bug? See [how to contribute][contributing].
 
-## `v0.1.1`
- - Handle `disableOnSubmit` option
- - Try to parse response data as JSON
- - Disable and enable inputs when the form is submitted if `disableOnSubmit` is
- provided and it's `true`
-
-## `v0.1.0`
- - Initial release
+## Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
 
 ## License
-See the [LICENSE](./LICENSE) file.
+
+[KINDLY][license] © [Ionică Bizău][website]
+
+[license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2014
+
+[website]: http://ionicabizau.net
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
+[donate-now]: http://i.imgur.com/6cMbHOC.png
+
+[contributing]: /CONTRIBUTING.md
+[docs]: /DOCUMENTATION.md
