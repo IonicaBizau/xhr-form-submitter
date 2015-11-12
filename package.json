@@ -1,6 +1,6 @@
 {
   "name": "xhr-form-submitter",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "A lightweight JavaScript library to submig forms via XHR requests.",
   "main": "src/xhr-form-submitter.js",
   "directories": {
