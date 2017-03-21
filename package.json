@@ -1,6 +1,6 @@
 {
   "name": "xhr-form-submitter",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A lightweight JavaScript library to submig forms via XHR requests.",
   "main": "src/xhr-form-submitter.js",
   "directories": {
@@ -19,7 +19,7 @@
     "submitter",
     "javascript"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IonicaBizau/xhr-form-submitter/issues"
@@ -29,12 +29,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ]
