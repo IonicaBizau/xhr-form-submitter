@@ -37,6 +37,7 @@ receiving the response from server.
 Submit the form using a XMLHttpRequest.
 
 #### Params
+
 - **Object** `submitOps`: The submit options
 
 #### Return
