@@ -1,6 +1,6 @@
 {
   "name": "xhr-form-submitter",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "A lightweight JavaScript library to submig forms via XHR requests.",
   "main": "src/xhr-form-submitter.js",
   "directories": {
@@ -36,6 +36,8 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
